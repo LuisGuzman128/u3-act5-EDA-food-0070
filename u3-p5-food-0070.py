@@ -1,0 +1,33 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+# Axel Guzman NC 0070
+# 1. leer el archivo CSV
+df_food_india = pd.read_csv('indian_food.csv')
+print("--- DATOS LEIDOS DESDE CSV, comida india 0070")
+print(df_food_india)
+print("--- mostrar nombre comida + ingredientes 0070 ---")
+recetas = df_food_india[['name', 'ingredients']]
+print(recetas)
+print("tiempo de cocinado mostrar 10 registros con head 0070")
+nombre_y_hora = df_food_india[['name', 'cook_time']].head(10)
+print(nombre_y_hora)
+print("--- Grafica comida (X) Tiempo de cocinado (Y)---")
+print("--- Grafica comida (X) texto a 30 grados ---")
+nombre_y_hora.plot.bar(x='name', y='cook_time', rot=30)
+plt.title('comida tipica de india Axel 0070')
+plt.xlabel('Nombre platillo')
+plt.ylabel('Tiempo de cocinado')
+plt.show()
+plt.title('grafica de varias columnas Axel Guzman 0070')
+nombre_y_hora = df_food_india[['name', 'prep_time', 'cook_time']].head(10)
+nombre_y_hora .plot.bar(x='name', rot=30)
+plt.title('grafica de 2 columnas Axel 0070')
+plt.xlabel('Nombre platillo')
+plt.ylabel('Tiempo de cocinado prep y comida')
+plt.show()
+print("--- Graficas apiladas una tras otra verticalmente ---")
+nombre_y_hora.plot.bar(x='name', stacked=True)
+plt.title('grafica apiladas Axel 0070')
+plt.xlabel('Nombre platillo')
+plt.ylabel('Tiempo de cocinado prep y comida')
+plt.show()
